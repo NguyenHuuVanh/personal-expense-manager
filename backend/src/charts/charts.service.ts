@@ -5,7 +5,7 @@ import { Transaction } from '../transactions/schemas/transaction.schema';
 
 type SubPeriod = 'day' | 'week' | 'month' | 'quarter';
 
-interface ChartDataItem {
+export interface ChartDataItem {
   date: string;
   income: number;
   expense: number;
