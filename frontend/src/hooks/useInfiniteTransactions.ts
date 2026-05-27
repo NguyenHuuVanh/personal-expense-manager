@@ -90,7 +90,9 @@ export function useInfiniteTransactions(
   );
 
   const query = useInfiniteQuery({
-    queryKey: QUERY_KEYS.transactions.infinite(filterKey),
+    queryKey: QUERY_KEYS.transactions.infinite(
+      filterKey as unknown as Record<string, unknown>
+    ),
     queryFn: ({ pageParam }) => fetchPage(filterKey, pageParam, limit),
     initialPageParam: 1,
     getNextPageParam: (lastPage) => {

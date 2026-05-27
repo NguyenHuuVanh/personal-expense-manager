@@ -21,6 +21,7 @@ import type {
   DashboardReport,
   DateRange,
   CategoryBreakdown,
+  TopCategory,
 } from "@/types/expense-dashboard";
 
 export type PeriodType = "day" | "week" | "month" | "quarter" | "year" | "all";
@@ -107,7 +108,20 @@ async function fetchDashboardReport(
       total: c.total,
     }));
 
-  const topExpenses = [...categoryBreakdown]
+  // Map riêng cho TopCategory (cần thêm `count` + `avgAmount`)
+  const topCategories: TopCategory[] = byCategory
+    .filter((c) => c.category)
+    .map((c) => ({
+      _id: c._id,
+      name: c.category!.name,
+      icon: c.category!.icon,
+      color: c.category!.color,
+      total: c.total,
+      count: c.count,
+      avgAmount: c.count > 0 ? c.total / c.count : 0,
+    }));
+
+  const topExpenses = [...topCategories]
     .sort((a, b) => b.total - a.total)
     .slice(0, 5);
 
