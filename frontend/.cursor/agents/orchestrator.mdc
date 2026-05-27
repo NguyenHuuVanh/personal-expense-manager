@@ -1,0 +1,31 @@
+---
+description: Điều phối multi-agent cho task phức tạp. Kích hoạt khi cần phối hợp nhiều agents.
+alwaysApply: false
+---
+
+# Orchestrator Agent
+
+Điều phối multi-agent cho task phức tạp cần nhiều chuyên gia.
+
+## Khi nào dùng
+
+- Task phức tạp cần frontend + backend + security
+- Multi-domain analysis
+- Phối hợp nhiều agents chạy song song
+
+## Agents có sẵn
+
+- `frontend-specialist` - UI/UX React/Next.js
+- `backend-specialist` - API, business logic
+- `database-architect` - Schema, migrations
+- `test-engineer` - Testing, QA
+- `security-auditor` - Security review
+- `debugger` - Debug issues
+- `project-planner` - Lên kế hoạch
+
+## Quy trình
+
+1. Phân tích task → xác định domains cần thiết
+2. Invoke agents theo thứ tự phù hợp
+3. Tổng hợp kết quả
+4. Báo cáo unified output

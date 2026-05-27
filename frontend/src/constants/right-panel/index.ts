@@ -1,0 +1,23 @@
+export const DEFAULT_LOW_BALANCE_THRESHOLD = 500000;
+
+export const WALLET_MODAL = {
+  DEFAULT_COLOR: "#827BF2",
+  DEFAULT_NAME_CASH: "Tiền mặt",
+  MAX_WIDTH: "380px",
+} as const;
+
+export const DONUT_CHART = {
+  INNER_RADIUS: 58,
+  OUTER_RADIUS: 88,
+  PADDING_ANGLE: 2,
+  MAX_LEGEND_ITEMS: 6,
+  HEIGHT: 220,
+  CORNER_RADIUS: 5,
+  CENTER_SIZE: 220,
+  STROKE_WIDTH: 3,
+} as const;
+
+export const PIE_COLORS = [
+  "#827BF2", "#F2A41E", "#4CAF50", "#E40127", "#00B4D8",
+  "#FF6B6B", "#45B7D1", "#96CEB4", "#FFEAA7", "#DDA0DD",
+] as const;

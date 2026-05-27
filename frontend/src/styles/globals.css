@@ -1,0 +1,295 @@
+/* Import Google Fonts - Montserrat */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Background */
+    --background: #f2f4f8;
+    --foreground: #1a1d2e;
+    --card: 0 0% 100%;
+    --card-foreground: #1a1d2e;
+    --popover: 0 0% 100%;
+    --popover-foreground: #1a1d2e;
+
+    /* border-radius */
+    --radius: 0.5rem;
+
+    /* Brand Colors - Expense Manager */
+    --primary: 253 73% 81%; /* #827BF2 - Primary Purple */
+    --primary-hover: 253 73% 71%;
+    --primary-light: 253 100% 95%; /* #EAE8FD - Primary Light */
+    --primary-foreground: 0 0% 100%;
+
+    --pink: 339 81% 67%; /* #F66PAC - Chi tiêu */
+    --pink-light: 339 81% 95%;
+
+    --green: 146 57% 40%; /* #21AE5A - Thu nhập */
+    --green-light: 146 57% 95%;
+
+    --orange: 35 89% 60%; /* #F89C34 - Cảnh báo */
+    --orange-light: 35 89% 95%;
+
+    --yellow: 48 93% 50%; /* #F2CC00 */
+
+    --red: 357 80% 49%; /* #E40127 - Vượt ngân sách */
+    --red-light: 357 80% 95%;
+
+    --secondary: 230 25% 96%; /* #F2F4F8 - Background */
+    --secondary-foreground: #5a607f;
+    --tertiary-foreground: #5a607f;
+    --muted: 230 25% 96%;
+    --muted-foreground: #9ea3b8;
+    --accent: 230 25% 96%;
+    --accent-foreground: #1a1d2e;
+    --destructive: 357 80% 49%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Text Colors */
+    --text-dark: #1a1d2e; /* Tiêu đề, số liệu */
+    --text-mid: #5a607f; /* Label, mô tả */
+    --text-light: #9ea3b8; /* Placeholder, phụ */
+
+    /* Border */
+    --border: 230 14% 92%; /* #ECEAF0 - Light subtle border */
+
+    /* Layout */
+    --sidebar-width: 220px;
+    --sidebar-collapsed-width: 64px;
+    --right-panel-width: 280px;
+    --topbar-height: 64px;
+
+    --chart-1: 253 73% 81%;
+    --chart-2: 146 57% 40%;
+    --chart-3: 339 81% 67%;
+    --chart-4: 35 89% 60%;
+    --chart-5: 48 93% 50%;
+  }
+
+  .dark {
+    --background: 222 28% 10%;
+    --foreground: 210 40% 98%;
+    --card: 222 28% 14%;
+    --card-foreground: 210 40% 98%;
+    --primary: 253 73% 75%;
+    --primary-hover: 253 73% 85%;
+    --primary-foreground: 222 28% 10%;
+    --secondary: 222 28% 18%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 222 28% 18%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --border: 222 28% 22%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border rounded-md;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  /* Input & Select - Light border */
+  input,
+  select,
+  .input-border {
+    border-color: hsl(var(--border));
+  }
+
+  /* Override border-input for lighter appearance */
+  .border-input {
+    border-color: hsl(var(--border)) !important;
+    opacity: 0.8;
+  }
+}
+
+/* =============================================
+   Scrollbar Utility Classes
+   - .hide-scrollbar : ẩn scrollbar nhưng vẫn scroll được
+   - .styled-scrollbar: scrollbar mỏng, subtle
+   ============================================= */
+@layer utilities {
+  /* Ẩn scrollbar hoàn toàn (cả dọc + ngang) nhưng vẫn scroll được */
+  .hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overflow: auto !important;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  /* Ẩn scrollbar dọc (Y), GIỮ scrollbar ngang (X) */
+  .hide-scrollbar-y {
+    overflow-x: auto !important;
+    overflow-y: auto !important;
+    /* scrollbar-width: none; */
+    -ms-overflow-style: none;
+  }
+  .hide-scrollbar-y::-webkit-scrollbar {
+    width: 0 !important; /* Ẩn scrollbar dọc */
+    height: 8px !important; /* Giữ scrollbar ngang */
+  }
+  .hide-scrollbar-y::-webkit-scrollbar-thumb {
+    background: #e0e3ec;
+    border-radius: 4px;
+  }
+  .hide-scrollbar-y::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Ẩn scrollbar ngang (X), GIỮ scrollbar dọc (Y) */
+  .hide-scrollbar-x {
+    overflow-x: auto !important;
+    overflow-y: auto !important;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .hide-scrollbar-x::-webkit-scrollbar {
+    width: 8px !important; /* Giữ scrollbar dọc */
+    height: 0 !important; /* Ẩn scrollbar ngang */
+  }
+  .hide-scrollbar-x::-webkit-scrollbar-thumb {
+    background: #e0e3ec;
+    border-radius: 4px;
+  }
+  .hide-scrollbar-x::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Scrollbar mỏng, subtle - dùng khi muốn có scrollbar nhưng không chiếm nhiều UI */
+  .styled-scrollbar {
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #e0e3ec transparent;
+    overflow-y: auto !important;
+  }
+  .styled-scrollbar::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  .styled-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .styled-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #e0e3ec;
+    border-radius: 9999px;
+  }
+  .styled-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #c4c4c4;
+  }
+
+  /* =============================================
+     Auth Page Animations
+     ============================================= */
+  @keyframes float-slow {
+    0%,
+    100% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-30px) scale(1.1);
+    }
+  }
+  @keyframes float-medium {
+    0%,
+    100% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(40px) scale(1.2);
+    }
+  }
+  @keyframes float-fast {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(20px, -20px);
+    }
+  }
+
+  .animate-float-slow {
+    animation: float-slow 8s ease-in-out infinite;
+  }
+  .animate-float-medium {
+    animation: float-medium 10s ease-in-out infinite;
+  }
+  .animate-float-fast {
+    animation: float-fast 12s ease-in-out infinite;
+  }
+
+  /* Fade in animation */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .animate-fade-in {
+    animation: fade-in 0.2s ease-out forwards;
+  }
+
+  /* Zoom in animation */
+  @keyframes zoom-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  .animate-zoom-in {
+    animation: zoom-in 0.2s ease-out forwards;
+  }
+
+  /* =============================================
+     Number Input Spinner Hiding
+     ============================================= */
+  /* Hide spinners for number inputs (Chrome, Safari, Edge) */
+  input[type="number"].no-spinner::-webkit-outer-spin-button,
+  input[type="number"].no-spinner::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  /* Hide spinners for number inputs (Firefox) */
+  input[type="number"].no-spinner {
+    -moz-appearance: textfield;
+  }
+  /* Focus state for number inputs - primary purple border */
+  input[type="number"].no-spinner:focus {
+    outline: none;
+    border-color: #827bf2;
+    box-shadow: 0 0 0 2px rgba(130, 123, 242, 0.2);
+  }
+
+  /* =============================================
+     Sticky Table Header
+     ============================================= */
+  .sticky-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+}

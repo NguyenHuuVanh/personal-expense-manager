@@ -1,0 +1,114 @@
+---
+description: Hướng dẫn viết Spec cho Dev Frontend - áp dụng cho mọi dự án frontend
+alwaysApply: true
+---
+
+# Hướng dẫn viết Spec cho Dev Frontend
+
+Tài liệu này áp dụng cho **mọi dự án frontend** — React, Next.js, Vue, Angular, hoặc bất kỳ framework nào.
+
+---
+
+## Mục tiêu của spec frontend
+
+Một spec frontend tốt không chỉ mô tả UI "trông như thế nào", mà còn phải trả lời được:
+
+- User vào flow này từ đâu?
+- User nhìn thấy gì ở từng trạng thái?
+- User tương tác như thế nào?
+- Hệ thống phản hồi ra sao khi thành công, thất bại, loading hoặc dữ liệu rỗng?
+- Điều gì là bắt buộc, điều gì chỉ là tùy chọn?
+- Những phần nào tuyệt đối không được phá vỡ?
+
+---
+
+## 12 nguyên tắc viết spec hiệu quả
+
+### 1. Mỗi spec chỉ nên tập trung vào một feature hoặc một bugfix
+
+Không nên viết kiểu:
+> Cải thiện màn dashboard và tối ưu trải nghiệm orders.
+
+Nên tách thành các spec nhỏ:
+- Filter orders theo date range
+- Order detail drawer
+- Fix double-submit ở checkout
+
+### 2. Dùng từ khóa mức độ bắt buộc
+
+- **MUST**: bắt buộc
+- **SHOULD**: nên làm
+- **MAY**: tùy chọn
+- **MUST NOT**: không được phép
+
+### 3. Luôn mở đầu bằng Goal, Non-goals, Constraints, Invariants
+
+- **Goal**: Feature giải quyết vấn đề gì?
+- **Non-goals**: Những gì chủ động không làm
+- **Constraints**: Design system, API, routing...
+- **Invariants**: Những thứ không được phá vỡ
+
+### 4. Viết spec theo user scenario, không viết theo component tree
+
+### 5. Mọi màn hình quan trọng phải có state matrix
+
+- Initial, Loading, Success, Empty, Error, Disabled, Submitting, Offline
+
+### 6. Luôn có interaction contract
+
+- Click làm gì?
+- Enter/Esc làm gì?
+- Focus ban đầu ở đâu?
+- Double click xử lý thế nào?
+
+### 7. Viết rõ responsive contract
+
+- Breakpoint nào là nguồn sự thật
+- Layout thay đổi ra sao
+
+### 8. Accessibility là bắt buộc
+
+- ARIA labels, keyboard nav
+- Focus visible
+- Screen reader support
+- Contrast tối thiểu (WCAG 2.1 AA)
+
+### 9. Tách data contract khỏi UI contract
+
+### 10. Validation contract cho form
+
+### 11. Animation contract
+
+### 12. Mỗi spec nên có acceptance criteria đo được
+
+---
+
+## Cấu trúc chuẩn của một spec frontend (16 phần)
+
+1. Feature
+2. Background
+3. Goal
+4. Non-goals
+5. Entry points
+6. User scenarios
+7. UI states
+8. Interaction contract
+9. Validation contract
+10. Responsive contract
+11. Accessibility contract
+12. Animation contract
+13. Data contract
+14. Acceptance criteria
+15. Out of scope
+16. Risks / Open questions
+
+---
+
+## Quy tắc cho AI khi implement
+
+1. Hỏi clarify nếu yêu cầu còn mơ hồ
+2. Tuân theo cấu trúc 16 phần
+3. Dùng từ khóa MUST/SHOULD/MAY
+4. Bao gồm state matrix
+5. Bao gồm data contract
+6. Liệt kê acceptance criteria đo được

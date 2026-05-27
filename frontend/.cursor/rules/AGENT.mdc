@@ -1,0 +1,107 @@
+---
+description: Hướng dẫn AI viết spec frontend theo cấu trúc 16 phần (Goal, User Scenarios, State Matrix, Interaction Contract...) và tuân thủ các nguyên tắc bắt buộc khi implement. Áp dụng cho mọi task liên quan đến spec, feature, hoặc UI component trong dự án CRM.
+alwaysApply: true
+---
+
+## Cấu trúc Spec Frontend (16 phần)
+
+### 1. Feature
+
+Tên và mô tả ngắn gọn feature.
+
+### 2. Background
+
+Ngữ cảnh, lý do cần feature này.
+
+### 3. Goal
+
+Mục tiêu cụ thể feature giải quyết.
+
+### 4. Non-goals
+
+Những gì chủ động KHÔNG làm.
+
+### 5. Entry points
+
+User vào flow từ đâu? Link, button, redirect.
+
+### 6. User scenarios
+
+Các kịch bản sử dụng chính (happy path, edge cases).
+
+### 7. UI states
+
+State matrix cho mỗi màn hình quan trọng: Initial, Loading, Success, Empty, Error, Disabled, Submitting, Offline.
+
+### 8. Interaction contract
+
+Keyboard, click, focus, submit, cancel, navigation, double-action prevention.
+
+### 9. Validation contract
+
+Từng field: required, rule, thời điểm validate, error message.
+
+### 10. Responsive contract
+
+Breakpoints và cách layout thay đổi.
+
+### 11. Accessibility contract
+
+Keyboard, focus, screen reader, contrast, motion.
+
+### 12. Animation contract
+
+Transition, duration, easing, reduced-motion, CLS prevention.
+
+### 13. Data contract
+
+API endpoint/query, params, mapping response/error, cache strategy.
+
+### 14. Acceptance criteria
+
+Các câu MUST/SHOULD có thể kiểm thử, có thể đo được.
+
+### 15. Out of scope / Future work
+
+Những gì để phase sau.
+
+### 16. Risks / Open questions
+
+Điều gì còn chưa chắc chắn.
+
+---
+
+## Hướng dẫn cho AI coding assistant
+
+Khi được yêu cầu viết spec hoặc phân tích feature, AI **MUST**:
+
+1. Hỏi clarify nếu yêu cầu còn mơ hồ
+2. Output bằng **tiếng Việt**
+3. Tuân theo đúng **cấu trúc 16 phần** đã nêu ở trên
+4. Dùng từ khóa **MUST / SHOULD / MAY / MUST NOT** cho mọi yêu cầu
+5. Bao gồm **state matrix** dạng bảng cho component quan trọng
+6. Bao gồm **data contract** với API/GraphQL cụ thể
+7. Liệt kê **acceptance criteria** đo được, có thể kiểm thử
+
+Khi được yêu cầu implement code, AI **MUST**:
+
+1. Đọc spec trước nếu có
+2. Kiểm tra component dependencies trước khi sửa
+3. Tôn trọng mọi **Invariants** đã khai báo
+4. Không phá vỡ accessibility contract
+5. Đảm bảo loading state và error state được xử lý đầy đủ
+6. Không tạo layout shift khi chuyển state
+7. Không được thay đổi code từ những module, component khác ngoài chức năng hỏi hoặc những component dùng chung
+8. Dùng những components có thể tái sử dụng, được dùng chung ở nhiều components khác
+9. Nếu chỉnh sửa code của người khác thì phải comment rõ ràng
+
+---
+
+## Quy tắc tạo Prompt chuẩn
+
+Bất kỳ khi nào user hỏi về một phần/tính năng nào đó, hãy đưa ra prompt chuẩn bằng tiếng Việt dựa trên cấu trúc 16 phần và dừng lại. Khi user xác nhận prompt đó, hãy sử dụng nó để thực thi.
+
+Ví dụ:
+
+- User hỏi: "Phần tổng quan trong module báo cáo được xây dựng như thế nào?"
+- Prompt chuẩn đề xuất: "Phân Tích Tab Tổng Quan Report - Phân tích kiến trúc và data flow của tab Tổng quan trong module Báo cáo."

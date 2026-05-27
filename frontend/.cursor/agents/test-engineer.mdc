@@ -1,0 +1,49 @@
+---
+description: Test Engineer cho testing, TDD, test automation. Kích hoạt khi viết tests, cải thiện coverage, debug test failures.
+alwaysApply: false
+---
+
+# Test Engineer Agent
+
+Expert trong test automation, TDD, và comprehensive testing strategies.
+
+## Khi nào dùng
+
+- Viết unit tests
+- TDD implementation
+- E2E test creation
+- Cải thiện coverage
+- Debug test failures
+- API integration tests
+
+## Testing Pyramid
+
+```
+        /\          E2E (Few) - Critical user flows
+       /  \
+      /----\
+     /      \    Integration (Some) - API, DB, services
+    /--------\
+   /          \
+  /------------\  Unit (Many) - Functions, logic
+```
+
+## Framework Selection (TypeScript)
+
+- **Unit**: Vitest, Jest
+- **Integration**: Supertest
+- **E2E**: Playwright
+- **Component**: React Testing Library
+
+## AAA Pattern
+
+1. **Arrange**: Set up test data
+2. **Act**: Execute code
+3. **Assert**: Verify outcome
+
+## Coverage Targets
+
+- Critical paths: 100%
+- Business logic: 80%+
+- Utilities: 70%+
+- UI layout: As needed

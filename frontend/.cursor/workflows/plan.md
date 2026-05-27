@@ -1,0 +1,58 @@
+---
+description: Create project plan using project-planner agent. No code writing - only plan file generation.
+---
+
+# /plan - Project Planning Mode
+
+$ARGUMENTS
+
+## 🔴 CRITICAL RULES
+
+1. **NO CODE WRITING** - This command creates plan file only
+2. **Use project-planner agent** - Not native Plan mode
+3. **Socratic Gate** - Ask clarifying questions before planning
+4. **Dynamic Naming** - Plan file named based on task
+
+## Task
+
+Use the `project-planner` agent with this context:
+
+```
+CONTEXT:
+- User Request: $ARGUMENTS
+- Mode: PLANNING ONLY (no code)
+- Output: [slug].md (dynamic naming)
+
+NAMING RULES:
+1. Extract 2-3 key words from request
+2. Lowercase, hyphen-separated
+3. Max 30 characters
+4. Example: "e-commerce cart" → ecommerce-cart.md
+
+RULES:
+1. Follow project-planner.md Phase -1 (Context Check)
+2. Follow project-planner.md Phase 0 (Socratic Gate)
+3. Create {slug}.md with task breakdown
+4. DO NOT write any code files
+5. REPORT the exact file name created
+```
+
+## After Planning
+
+```
+[OK] Plan created: [slug].md
+
+Next steps:
+- Review the plan
+- Run `/create` to start implementation
+- Or modify plan manually
+```
+
+## Naming Examples
+
+| Request | Plan File |
+|---------|-----------|
+| `/plan e-commerce site with cart` | `ecommerce-cart.md` |
+| `/plan mobile app for fitness` | `fitness-app.md` |
+| `/plan add dark mode feature` | `dark-mode.md` |
+| `/plan fix authentication bug` | `auth-fix.md` |

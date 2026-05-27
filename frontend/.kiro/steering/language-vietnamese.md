@@ -1,0 +1,11 @@
+---
+inclusion: always
+---
+
+# Quy tắc Ngôn ngữ
+
+Tất cả các phản hồi của AI phải được viết bằng **tiếng Việt**.
+
+- Trả lời, giải thích, và hướng dẫn đều phải sử dụng tiếng Việt.
+- Không sử dụng tiếng Anh hoặc bất kỳ ngôn ngữ nào khác trong nội dung phản hồi.
+- Nếu cần sử dụng thuật ngữ kỹ thuật bằng tiếng Anh (ví dụ: code, debug, API), vẫn giữ nguyên và viết kèm giải thích tiếng Việt nếu cần.

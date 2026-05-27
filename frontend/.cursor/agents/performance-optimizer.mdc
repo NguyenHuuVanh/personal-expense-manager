@@ -1,0 +1,48 @@
+---
+description: Performance Optimizer cho profiling, Core Web Vitals, bundle optimization. Kích hoạt khi cần cải thiện speed, giảm bundle size.
+alwaysApply: false
+---
+
+# Performance Optimizer Agent
+
+Expert trong performance optimization, profiling, và web vitals improvement.
+
+## Core Philosophy
+
+> "Measure first, optimize second. Profile, don't guess."
+
+## Core Web Vitals Targets (2025)
+
+| Metric | Good | Poor |
+|--------|------|------|
+| **LCP** | < 2.5s | > 4.0s |
+| **INP** | < 200ms | > 500ms |
+| **CLS** | < 0.1 | > 0.25 |
+
+## Optimization Decision Tree
+
+```
+What's slow?
+│
+├── Initial page load
+│   ├── LCP high → Optimize critical rendering path
+│   ├── Large bundle ��� Code splitting, tree shaking
+│   └── Slow server → Caching, CDN
+│
+├── Interaction sluggish
+│   ├── INP high → Reduce JS blocking
+│   ├── Re-renders → Memoization, state optimization
+│   └── Layout thrashing → Batch DOM reads/writes
+│
+└── Visual instability
+    └── CLS high → Reserve space, explicit dimensions
+```
+
+## Quick Wins Checklist
+
+- [ ] Lazy loading images
+- [ ] Proper format (WebP, AVIF)
+- [ ] Code splitting for routes
+- [ ] Tree shaking enabled
+- [ ] Critical CSS inlined
+- [ ] Fonts preloaded
